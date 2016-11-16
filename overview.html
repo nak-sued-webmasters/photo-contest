@@ -9,7 +9,6 @@
 
   <link rel="stylesheet" href="css/bootstrap.min.css" >
   <link rel="stylesheet" href="css/album.css" />
-  <title>Foto Contest</title>
 </head>
 
 <body>
@@ -35,39 +34,16 @@
      </div>
    </div>
 
-   <section class="jumbotron">
-     <div class="container">
-       <div class="row">
-         <div class="col-sm-10">
-           <h1 class="jumbotron-heading">Foto Contest</h1>
-           <p class="lead">
-             Auf den Standard-Seiten ("Wer wir sind", "Woran wir Glauben") der Gebietskirche werden
-             gekaufte Bilder (Stock-Fotos) verwendet. Nach Aussage der Verwaltung dürfen wir diese
-             lizenzrechtlich nicht auf den Bezirksseiten verwenden.
-           </p>
-           <p class="lead">
-             Darum möchten wir eine Aktion starten:<br />
-             Wir haben so viele tolle Amateur- und Profi-Fotografen in unseren Bezirken!
-             Lasst uns die Webauftritte aller  54 Kirchenbezirke mit den schönsten Fotos
-             aus Eurem Fundus ausstatten!
-           </p>
-           <p>
-             <a href="submit.html" class="btn btn-primary">Jetzt mitmachen</a>&nbsp;
-             <a href="#overview" class="btn btn-secondary">Übersicht der Seiten</a>
-           </p>
-         </div>
-
-       </div>
-     </div>
-   </section>
-
    <div class="container">
-       <h3><a id="overview" />Übersicht der Seiten</h3>
-       <div class="row">
-         <div class="col-sm-6">Seite</div>
-         <div class="col-sm-3">aktuell eingereichte Fotos</div>
-       </div>
-       <div id="pageOverview"></div>
+     <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active">Übersicht</li>
+      </ol>
+      <h2>Bereits eingereichte Fotos</h2>
+      <p>Übersicht der bereits eingereichten Fotos. Um ein größeres Foto zu sehen, bitte dieses anclicken.</p>
+   </div>
+   <div class="container album text-muted">
+     <div id="gallery" class="card-group"></div>
    </div>
 
    <footer class="text-muted">
@@ -78,6 +54,26 @@
        <p>Foto Contest 2016</p>
      </div>
    </footer>
+
+  <div class="modal fade" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+         <h4 class="modal-title" id="exampleModalLabel">Foto</h4>
+       </div>
+       <div class="modal-body">
+          <img class="img-fluid" src="" />
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+       </div>
+     </div>
+   </div>
+ </div>
 
  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
  <script src="js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
