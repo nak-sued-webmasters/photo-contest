@@ -10,7 +10,8 @@ before_install:
 install:
 - npm install
 before_script:
-- npm install -g surge 
 
 script:
+
+after_success:
 - surge -d nak-sued-fotocontest.surge.sh
