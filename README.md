@@ -1,2 +1,2 @@
-# photo-contest
+# Photo-Contest
 Photo-Contest Webapp
