@@ -81,7 +81,7 @@ function showPages() {
               + '<a href="' + record.get('entsprechender Link auf nak-sued.de') + '" target="_blank">'
               + record.get('Zielseite')
               + '</a></div>'
-              + '<div class="col-sm-3"><progress class="progress progress-info" value="' + count + '" max="15" title="aktuell eingereichte Fotos: ' + count + '"></progress></div>'
+              + '<div class="col-sm-3"><progress class="progress progress-info" value="' + count + '" max="15" title="' + count + ' eingereichte Fotos"></progress></div>'
               + '</div>'
             );
           });
@@ -99,7 +99,6 @@ function getVotes() {
   }).eachPage(function page(records, fetchNextPage) {
 
       // This function (`page`) will get called for each page of records.
-
       records.forEach(function(record) {
           console.log('Retrieved ', record.get('Name'));
       });
@@ -115,5 +114,4 @@ function getVotes() {
 
       }
   });
-
 }
