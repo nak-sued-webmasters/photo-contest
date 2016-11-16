@@ -9,7 +9,6 @@
 
   <link rel="stylesheet" href="css/bootstrap.min.css" >
   <link rel="stylesheet" href="css/album.css" />
-  <title>Foto Contest</title>
 </head>
 
 <body>
@@ -35,39 +34,12 @@
      </div>
    </div>
 
-   <section class="jumbotron">
+   <div class="album text-muted">
      <div class="container">
-       <div class="row">
-         <div class="col-sm-10">
-           <h1 class="jumbotron-heading">Foto Contest</h1>
-           <p class="lead">
-             Auf den Standard-Seiten ("Wer wir sind", "Woran wir Glauben") der Gebietskirche werden
-             gekaufte Bilder (Stock-Fotos) verwendet. Nach Aussage der Verwaltung dürfen wir diese
-             lizenzrechtlich nicht auf den Bezirksseiten verwenden.
-           </p>
-           <p class="lead">
-             Darum möchten wir eine Aktion starten:<br />
-             Wir haben so viele tolle Amateur- und Profi-Fotografen in unseren Bezirken!
-             Lasst uns die Webauftritte aller  54 Kirchenbezirke mit den schönsten Fotos
-             aus Eurem Fundus ausstatten!
-           </p>
-           <p>
-             <a href="submit.html" class="btn btn-primary">Jetzt mitmachen</a>
-             <!-- <a href="#" class="btn btn-secondary">Secondary action</a> -->
-           </p>
-         </div>
-
+       <h2>Bereits eingereichte Fotos</h2>
+       <div id="gallery" class="card-group">
        </div>
      </div>
-   </section>
-
-   <div class="container">
-       <h3>Übersicht der Seiten</h3>
-       <div class="row">
-         <div class="col-sm-6">Seite</div>
-         <div class="col-sm-3">aktuell eingereichte Fotos</div>
-       </div>
-       <div id="pageOverview"></div>
    </div>
 
    <footer class="text-muted">
@@ -78,7 +50,6 @@
        <p>Foto Contest 2016</p>
      </div>
    </footer>
-
 
   <div class="modal fade" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
    <div class="modal-dialog" role="document">
