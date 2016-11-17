@@ -1,17 +1,21 @@
 language: node_js
-
 node_js:
-- "node"
-
+- node
 
 install:
 - npm install
 
-before_script:
+before_script: 
 
-script:
+script: 
 
 deploy:
   provider: surge
-  project: ./
+  project: "./"
   domain: nak-sued-fotocontest.surge.sh
+  on:
+    branch: develop
+  
+after_success:
+  provider: script
+  script: ./deploy.sh
