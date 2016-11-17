@@ -18,3 +18,10 @@ Start local live preview by Browsersync.io by following command in project root 
 ` npm start `
 
 All changes will beupdated automatically in opened browser.
+
+## Libraries used
+
+* [airtable.js](https://github.com/airtable/airtable.js)
+* [jQuery](https://jquery.org)
+* [v4-alpha Bootstrap](http://v4-alpha.getbootstrap.com/)
+* [spin.js](http://spin.js.org/)
