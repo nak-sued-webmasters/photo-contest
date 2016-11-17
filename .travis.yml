@@ -15,4 +15,5 @@ deploy:
   domain: nak-sued-fotocontest.surge.sh
   
 after_success:
-- "./deploy.sh"
+  provider: script
+  script: ./deploy.sh
