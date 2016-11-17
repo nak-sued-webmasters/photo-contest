@@ -13,6 +13,8 @@ deploy:
   provider: surge
   project: "./"
   domain: nak-sued-fotocontest.surge.sh
+  on:
+    branch: develop
   
 after_success:
   provider: script
