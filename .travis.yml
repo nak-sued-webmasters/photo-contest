@@ -9,7 +9,7 @@ before_script:
 
 script: 
 
-deploy:
+after_success:
   provider: surge
   project: "./"
   domain: nak-sued-fotocontest.surge.sh
@@ -17,5 +17,6 @@ deploy:
     branch: develop
   
 deploy:
+  skip_cleanup: true
   provider: script
   script: ./deploy.sh
