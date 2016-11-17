@@ -1,4 +1,4 @@
-[![Travis](https://img.shields.io/travis/nak-sued-webmasters/photo-contest.svg)]()
+[![Build Status](https://travis-ci.org/nak-sued-webmasters/photo-contest.svg?branch=master)](https://travis-ci.org/nak-sued-webmasters/photo-contest)
 
 # Photo-Contest
 
