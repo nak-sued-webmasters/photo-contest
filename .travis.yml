@@ -9,14 +9,13 @@ before_script:
 
 script: 
 
-after_success:
-  provider: surge
+deploy:
+- provider: surge
+  skip_cleanup: true
   project: "./"
   domain: nak-sued-fotocontest.surge.sh
   on:
     branch: develop
-  
-deploy:
+- provider: script
   skip_cleanup: true
-  provider: script
   script: ./deploy.sh
