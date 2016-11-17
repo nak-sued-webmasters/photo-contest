@@ -1,17 +1,17 @@
 language: node_js
-
 node_js:
-- "node"
-
-
+- node
+env:
+  global:
+  - secure: XFvBCoiM8gxRGAN767IX1fa5yLOMEQOQVh4AyCMd2xa7Dez4B/wVFDFoFhkuc+QbPpgxm70hhOxGeugBQGayZXSVlANfRTvowBFDPHY82jM+4xVY6EeUYF1+Q3YTz+bbWEO4PQQaNYP9Vrk5Ud0xOnLJR6I19fpfdh+I7MBhNx7J6kJudJ7XQASMWKmDgcf1hCadfQpF5VbYjxZyU1ESEuVSCPJ9vweDp+dyjRXPlDSv0G6pFBZkT2OFOGxlnjY3ZpUmqy+kJDB/tUIvUfdL06VXWVBuuuVnaYnxBtUI6q3yMvSh6O6aeWd1XkOeMfp3kClmb+9ILxplLmUIE4yBpfPccnh0dgntkODvYIhS8SqeRNuQa8/bPLeKLZQ4Ta+FGQEF3fewusVbAqrvW00GOOkd8m8EA4DeCU97r/A1BLOPT8c0qoJEylVU0OaeXD2EbSFkfjHpd9AHsyJwdK5/ns7phtEsSIAdmfXF+WtRkoI9rk9HIxKXXJa7cfq5e2QcvdJ/GwNexeBAeBGS+jHHL5g21d9WWInJfSP0ucmiSe49LD+u+wNfD/znchI97sFEbre28jNJnipQADt+h+pAkxNEHU79ri7TtHik6YWctEC/khzQdVSZRumrbxnqUy+dmO92TFg6rXaHrhv1ddlhD3e2wPhXYBRWedDqgMxhT58=
+  - secure: ZbLTAv/nTOgE71lGT4CPg7jpdOL312ubqY2Fot5JFMblCO7BZGPPXlaO2k76+vC/1zaYnzyJKCZ7nG0uVCfqlq8vwqajhypZ5/Bsd7GXW9p2r4tfZvJ8lKd/uXOrERSGgd+9MdgtYF6sB9agzS1VGLpmnFmVUs5UrS+M1QxS6/cxtQnnvaxB+414QIWQ4oVF6XExBckmi1nQOpXi9vo5EGtMTXt8o6zn6yo4uB2mY/+HgU5LUnemC6gJPuZya+6SCHgd144v4rvsUcwrqAoSenchxyHjp/eNwYdqWZFs9PZZUaRMXDQWTplbFhlaHskK/LI2Jx3N0yuBcvdh/DhNoZAfaIanM6Er4pwbn+ARvHdyGRzaI4rbdtkJTlrvyO1NhOzAvoKWWtysPW0KSkpwHilOJydZh7OtVRndhFRLPeVrxN5tHVWQRBWrkEKc7SXnKcL4YTiwxK8EZ9KGdCFLRdIxLUpC/g+XVWg5NaqrEE0yw/9GXpcySzGVvE1IBvHb71uJbvsotKWJLq7Jxsc1iENUjrDIGT0z6SQHm3TGLRBLvSWjqEofZUX0GejaV9A6DLeOpIzypUFAiFALmDfU7GPbMRzcHmSkT5rum7pVewokP3LEfccMu5VXCn1YRb1sgoZv3rmJH+GSgB8/i8zUnAHCX/9zUn+z30Th0PZL0yk=
 install:
 - npm install
-
-before_script:
-
-script:
-
+before_script: 
+script: 
 deploy:
   provider: surge
-  project: ./
+  project: "./"
   domain: nak-sued-fotocontest.surge.sh
+after_success:
+- "./deploy.sh"
