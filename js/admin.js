@@ -13,7 +13,7 @@ function loadPhotos(base) {
         var url = record.get('Foto')["0"].url;
         var id = record.get('ID');
         $("#gallery").append(
-          ' <div class="col-sm-3"><div class="card">'
+          ' <div class="card">'
           + '<a href="#" data-toggle="modal" data-target="#photoModal" data-url="'+ url +'" data-id="' + id +'">'
           + '<img class="card-img-top img-fluid" src="' + url + '" /></a>'
           + '<div class="card-block">'
@@ -21,7 +21,7 @@ function loadPhotos(base) {
           + '<div id="rate' + id + '"> </div>'
           //+ '<p class="card-text">' + record.get('Fotograf: Name') + '</p>'
           + '</div>'
-          + '</div></div>'
+        + '</div>'
         );
 
         $(function(){
