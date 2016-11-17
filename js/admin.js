@@ -2,6 +2,7 @@
 
 
 function loadPhotos(base) {
+    var spinner = new Spinner(opts).spin(document.getElementById('main'));
 
   base('Fotos').select({
       view: "Main View"
@@ -58,6 +59,7 @@ function loadPhotos(base) {
         modal.find('.modal-title').text('Foto  #' + id)
         modal.find('.modal-body .img-fluid').attr("src", url);
       });
+      spinner.stop();
   });
 }
 
