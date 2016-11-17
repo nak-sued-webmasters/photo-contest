@@ -13,9 +13,10 @@ function loadPhotos(base) {
       records.forEach(function(record) {
         var url = record.get('Foto')["0"].url;
         var id = record.get('ID');
-        var cardDiv =galleryDiv.append(
-          ' <div class="col-sm-3"><div class="card">'
-        + '<a href="#" data-toggle="modal" data-target="#photoModal" data-url="'+ url +'" data-id="' + id +'">'
+
+        $("#gallery").append(
+          ' <div class="card">'
+          + '<a href="#" data-toggle="modal" data-target="#photoModal" data-url="'+ url +'" data-id="' + id +'">'
           + '<img class="card-img-top img-fluid" src="' + url + '" /></a>'
             + '<div class="card-block">'
           + '<p class="card-text">#' + id + '</p>');
@@ -23,7 +24,7 @@ function loadPhotos(base) {
          xRateDivDiv.append(
              //+ '<p class="card-text">' + record.get('Fotograf: Name') + '</p>'
           + '</div>'
-          + '</div></div>'
+        + '</div>'
         );
 
           var d = document.createElement('rate' + id);
