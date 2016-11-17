@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="de">
+
+<head>
+  <!-- Required meta tags always come first -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link id="favIconCanvas" rel="icon" type="image/x-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAADj0lEQVRYR9VXTUhUURg9943zmh9nfKISammLjH6QGYlKJC2qRdmiiIqwyFYtCswWuojChIgsKCikFv2sqkXlqqyEcAwrMKnEyMIiNTJyLMdxfnszc+Pe16TjzNhLx4Y+mM19c79zvu8797x3CQBI50aklIDvEEDXAtRKQCS2PhtBARtAbMM12fUsP2HgWtnTCkKsswEYNyelr+y1uUUk88zn4wSk7p+C/wKjoPUk8/SgjRCsSQoBijaSdWaQJgOcYVJQR1IJcBEmswPTIlBRaAD7GbUkYnKUAu0DfjQ8GYNbVj/VuB24uiUdmwt0YDCBEHDlpRtfXUFUF5tg0BIMjAbhDShAAgHmmzXQawmae32ouu9QTSIugUqLAStyRQ4gBymcfordhQaIGoJLnS6cbB+L6MDGhTqcWp+GuakCHrz34cijUXxxhf6o7ygCdWvMHChFGN/LKmTV+QIUF5+7cepJJHj4n4zEyXVmzDNr4A8qxCdG11cZe5q+R3QnisDtHRlYnSeifzQIz69ZBkMU3UMybr3x4umnHzzntiV6lOaJ0GoI3tpl3Onx8oqzUwXstRh5jlRRqUJDgHxJA4eP4mDzCNoHlBwxRcgIFM8TcaHDxQU1ObYv1aOmxIQFkobrIxxsRDdfe3Cs1Rm1h5FpLE/n6zMiUF6gQ8OGNGToBbT2+dH43IWPIwFUrTJhx1L9b31kGQU+xnB0DMpcpKoJTB5BOFGWQUCmQUBTjxcHmh0Rle6zGHC0zAxCAKc/BEkn4OwzF/YvN0IrKBpSPYKyfEX9scLuCeHwQwdaPvijHt+tyMTKHC1fZ/rrcwR55aJSPNeIqhFMReDdtwBKr9ljkju/ScKuZfq45BNCIFaSMGLTTuUExYuEEJBDwOUXbtTZItW+dTETqIR0XaRFTySTEAIsIbPgG91enHjs5KbC3g21JSbkmCa4V4w2qCbAfOB6twedg+OGEc63KCMFlRYjJB3hbsdMiik8GAJaPvhwr9cXBZ2mE1C9KpULU5UIpzIilp2RYMeuKFvEHA1Bz7DMCYddcjKDhBlRXHX94cFfEyjNF+GVKULqX+tTUmDmpEshGHKr8AHm9fusxqgPjulWH97HPlja+v2ob4s8Pf/fJ9lMOzF5f1I7QClGk38xSfrVjF9OAx52Y7Uker5T56Nd9ppcK39zKNdzTzUoWQvASgjSZosMpWgDobbhmtzjDOMnVIzsFe3SULEAAAAASUVORK5CYII=">
+  <link rel="stylesheet" href="../css/bootstrap.min.css" >
+  <link rel="stylesheet" href="../css/album.css" />
+</head>
+
+<body>
+
+  <div class="navbar-collapse collapse inverse" id="navbar-header">
+     <div class="container-fluid">
+       <div class="about">
+         <h4>Über den Contest</h4>
+         <p class="text-muted">Das ist die Übersicht der eingereichten Fotos des Contests.</p>
+       </div>
+       <div class="social">
+         <h4>Kontakt</h4>
+         <ul class="list-unstyled">
+           <li><a href="mailto:#">E-Mail</a></li>
+         </ul>
+       </div>
+     </div>
+   </div>
+   <div class="navbar navbar-static-top navbar-dark bg-inverse">
+     <div class="container-fluid">
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation"></button>
+       <a href="#" class="navbar-brand">
+           <img src="../assets/favicon.png" width="30" height="30" alt="" />
+           Foto Contest</a>
+     </div>
+   </div>
+
+   <div class="container">
+     <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+        <li class="breadcrumb-item active">Übersicht</li>
+      </ol>
+      <h2>Übersicht der eingereichten Fotos</h2>
+      <p>Übersicht der bereits eingereichten Fotos. <br />
+        Um ein größeres Foto zu sehen, bitte dieses anklicken.</p>
+   </div>
+   <div class="container album text-muted">
+     <div id="gallery" class="card-group"></div>
+   </div>
+
+   <footer class="text-muted">
+     <div class="container">
+       <p class="float-xs-right">
+         <a href="#">Back to top</a>
+       </p>
+       <p>Foto Contest 2016</p>
+     </div>
+   </footer>
+
+  <div class="modal fade" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog  modal-lg" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+         <h4 class="modal-title" id="exampleModalLabel">Foto</h4>
+       </div>
+       <div class="modal-body">
+          <img class="img-fluid" src="" />
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       </div>
+     </div>
+   </div>
+ </div>
+
+     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+     <script src="../js/tether.min.js"></script>
+     <script src="../js/bootstrap.min.js"></script>
+     <script src="../node_modules/airtable/build/airtable.browser.js"></script>
+     <script src="../assets/js/jRate.min.js"></script>
+     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+     <script src="../assets/js/ie10-viewport-bug-workaround.js"></script>
+     <script src="../js/fotocontest.js"></script>
+    <script src="../js/admin.js"></script>
+    <script>
+        $( document ).ready(function() { 
+            initApp();
+            loadPhotos(base);
+            getVotes(base);
+        });</script>
+</body>
+</html>
