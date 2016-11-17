@@ -16,6 +16,6 @@ deploy:
   on:
     branch: develop
   
-after_success:
+deploy:
   provider: script
   script: ./deploy.sh
