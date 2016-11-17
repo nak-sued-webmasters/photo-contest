@@ -1,31 +1,33 @@
+'use strict';
 
 
 
 function loadPhotos(base) {
     var spinner = new Spinner(opts).spin(document.getElementById('main'));
-
-  base('Fotos').select({
-      view: "Main View"
-  }).eachPage(function page(records, fetchNextPage) {
+    var galleryDiv = $("#gallery");
+    base('Fotos').select({
+        view: "Main View"
+    }).eachPage(function page(records, fetchNextPage) {
 
       // This function (`page`) will get called for each page of records.
       records.forEach(function(record) {
         var url = record.get('Foto')["0"].url;
         var id = record.get('ID');
-        $("#gallery").append(
+        var cardDiv =galleryDiv.append(
           ' <div class="col-sm-3"><div class="card">'
-          + '<a href="#" data-toggle="modal" data-target="#photoModal" data-url="'+ url +'" data-id="' + id +'">'
+        + '<a href="#" data-toggle="modal" data-target="#photoModal" data-url="'+ url +'" data-id="' + id +'">'
           + '<img class="card-img-top img-fluid" src="' + url + '" /></a>'
-          + '<div class="card-block">'
-          + '<p class="card-text">#' + id + '</p>'
-          + '<div id="rate' + id + '"> </div>'
-          //+ '<p class="card-text">' + record.get('Fotograf: Name') + '</p>'
+            + '<div class="card-block">'
+          + '<p class="card-text">#' + id + '</p>');
+         var xRateDivDiv = cardDiv.append('<div id="x-rate' + id + '"> </div>');
+         xRateDivDiv.append(
+             //+ '<p class="card-text">' + record.get('Fotograf: Name') + '</p>'
           + '</div>'
           + '</div></div>'
         );
 
-        $(function(){
-          $('rate' + id ).jRate({
+          var d = document.createElement('rate' + id);
+          $(d).jRate({
                 rating: 1,
         				strokeColor: 'black',
         				precision: 1,
@@ -36,8 +38,10 @@ function loadPhotos(base) {
         				onSet: function(rating) {
         					console.log("OnSet: Rating: "+rating);
         				}
-          });
-        });
+          })
+          .appendTo(xRateDivDiv);
+
+
       });
 
       // To fetch the next page of records, call `fetchNextPage`.
