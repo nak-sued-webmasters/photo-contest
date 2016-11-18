@@ -18,4 +18,4 @@ deploy:
     branch: develop
 - provider: script
   skip_cleanup: true
-  script: ./deploy.sh
+  script: curl --ftp-create-dirs -T $f -u $FTP_USER:$FTP_PASS ftp://fotocontest.nak-sued.de/web/$f
