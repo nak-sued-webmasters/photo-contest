@@ -25,3 +25,4 @@ All changes will beupdated automatically in opened browser.
 * [jQuery](https://jquery.org)
 * [v4-alpha Bootstrap](http://v4-alpha.getbootstrap.com/)
 * [spin.js](http://spin.js.org/)
+* [Rate Picker](http://www.jqueryscript.net/other/Minimal-Rating-Plugin-with-jQuery-Font-Awesome-Rate-Picker.html)
