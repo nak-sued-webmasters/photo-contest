@@ -16,6 +16,6 @@ deploy:
   domain: nak-sued-fotocontest.surge.sh
   on:
     branch: develop
-
-after_success:
-    "curl --ftp-create-dirs -T uploadfilename -u $FTP_USER:$FTP_PASS ftp://fotocontest.nak-sued.de/web/"
+- provider: script
+  skip_cleanup: true
+  script: ./deploy.sh
