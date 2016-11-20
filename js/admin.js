@@ -10,20 +10,26 @@ function loadPhotos(base) {
         records.forEach(function (record) {
             var url = record.get('Foto')["0"].url;
             var id = record.get('ID');
-            var cardDiv = $("#gallery").append(' <div class="card">')
-                .append('<a href="#" data-toggle="modal" data-target="#photoModal" data-url="' + url + '" data-id="' + id + '">'
-                        + '<img class="card-img-top img-fluid" src="' + url + '" />' + '</a>'
-                        + '<div class="card-block">'
+            var stars = getLocalRateStars(record.id);
+
+            var cardDiv = $("#gallery")
+              .append('<div class="card">'
+                + '<a href="#" data-toggle="modal" data-target="#photoModal" data-url="' + url + '" data-id="' + id + '">'
+                + '  <img class="card-img-top img-fluid" src="' + url + '" />'
+                + '</a>'
+                + '<div class="card-block">'
                         + '<p class="card-text">#' + id
-                        + ' <span class="rare" id="x-rate' + id + '" data-stars="0"> </span> '
+                        + ' <span class="rare" id="x-rate' + id + '" data-stars="'+stars+'"> </span> '
                         + '</p>'
                         + '<p class="card-text"><em>Fotograf:</em> ' + record.get('Fotograf: Name') + '</p>'
-                        + '</div>' + '</div>');
+                + '</div>'
+                + '</div>');
             $(document).ready(function () {
                 $.ratePicker("#x-rate" + id, {
                     max: 5
                     , rate: function (stars) {
-                        alert(id + '\'s Rate is ' + stars);
+                        console.log(record.id + ' - Rate is ' + stars);
+                        setLocalRateStars(record.id, stars);
                     }
                 });
             });
@@ -71,4 +77,17 @@ function getVotes(base) {
             console.log(error);
         }
     });
+}
+
+function getLocalRateStars(id) {
+  var stars = localStorage.getItem(id);
+  if(typeof stars == 'undefined') {
+    stars = 0;
+  }
+  return stars;
+}
+
+function setLocalRateStars(id, stars) {
+
+  localStorage.setItem(id, stars);
 }
