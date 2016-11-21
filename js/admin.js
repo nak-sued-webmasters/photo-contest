@@ -1,5 +1,12 @@
 'use strict';
 
+function login() {
+  
+  digest = asmCrypto.SHA256.hex("The quick brown fox jumps over the lazy dog");
+  
+}
+
+
 function loadPhotos(base) {
     var spinner = new Spinner(opts).spin(document.getElementById('main'));
     var galleryDiv = $("#gallery");
@@ -20,10 +27,13 @@ function loadPhotos(base) {
                 + '<div class="card-block">'
                         + '<p class="card-text">#' + id
                         + ' <span class="rare" id="x-rate' + id + '" data-stars="'+stars+'"> </span> '
-                        + '</p>'
-                        + '<p class="card-text"><em>Fotograf:</em> ' + record.get('Fotograf: Name') + '</p>'
+                        + '<br />'
+                        + '<em><b>Fotograf:</b></em> ' + record.get('Fotograf: Name') + '</em><hr />'
+                        + ((typeof record.get('Notiz') == 'undefined') ? '' : '<small>' +record.get('Notiz') + '</small>')
+                      + '</p>'
                 + '</div>'
                 + '</div>');
+
             $(document).ready(function () {
                 $.ratePicker("#x-rate" + id, {
                     max: 5
