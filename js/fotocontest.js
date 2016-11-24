@@ -29,7 +29,7 @@ function initApp() {
         
     Airtable.configure({
         endpointUrl: 'https://api.airtable.com',
-        apiKey: 'keyEBVQDL09ru6huz'
+        apiKey: 'key9QkLr8980YwBO4'
     });
     base = Airtable.base('apprnzHcKjenpB8sM');
 }
