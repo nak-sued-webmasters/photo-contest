@@ -6,7 +6,9 @@ function login() {
   
 }
 
-
+/**
+ * Load Photos of contest for admin overview.
+ */
 function loadPhotos(base) {
     var spinner = new Spinner(opts).spin(document.getElementById('main'));
     var galleryDiv = $("#gallery");
@@ -19,23 +21,22 @@ function loadPhotos(base) {
             var id = record.get('ID');
             var stars = getLocalRateStars(record.id);
 
-            var cardDiv = $("#gallery")
-              .append('<div class="card">'
+            $("#gallery").append('<div class="card">'
                 + '<a href="#" data-toggle="modal" data-target="#photoModal" data-url="' + url + '" data-id="' + id + '">'
                 + '  <img class="card-img-top img-fluid" src="' + url + '" />'
                 + '</a>'
                 + '<div class="card-block">'
                         + '<p class="card-text">#' + id
-                        + ' <span class="rare" id="x-rate' + id + '" data-stars="'+stars+'"> </span> '
+                        + ' <span  id="rate' + id + '" data-stars="'+stars+'"> </span> '
                         + '<br />'
-                        + '<em><b>Fotograf:</b></em> ' + record.get('Fotograf: Name') + '</em><hr />'
-                        + ((typeof record.get('Notiz') == 'undefined') ? '' : '<small>' +record.get('Notiz') + '</small>')
+                        + '<em><b>Fotograf(in):</b></em> ' + record.get('Fotograf: Name') + '</em>'
+                        + ((typeof record.get('Notiz') == 'undefined') ? '' : '<hr /><small>' +record.get('Notiz') + '</small>')
                       + '</p>'
                 + '</div>'
                 + '</div>');
 
             $(document).ready(function () {
-                $.ratePicker("#x-rate" + id, {
+                $.ratePicker("#rate" + id, {
                     max: 5
                     , rate: function (stars) {
                         console.log(record.id + ' - Rate is ' + stars);
