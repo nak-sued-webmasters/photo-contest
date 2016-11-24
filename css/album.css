@@ -40,6 +40,10 @@
   background-color: #f7f7f7;
 }
 
+#gallery {
+	min-height: 25rem;
+}
+
 .card {
   transition-delay: 0s;
   transition-duration: 0.08s, 0.2s, 0.2s;
