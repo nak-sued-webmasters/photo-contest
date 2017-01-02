@@ -34,14 +34,19 @@
 
 
 .album {
-
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+  margin-bottom: .25rem;
+  -padding-top: 1rem;
+  -padding-bottom: 1rem;
+  border-radius: .25rem;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #a7a7a7;
   background-color: #f7f7f7;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 2px;
 }
 
 #gallery {
-	min-height: 25rem;
+
 }
 
 .card {

@@ -11,6 +11,10 @@ function login() {
  */
 function loadPhotos(base) {
     var spinner = new Spinner(opts).spin(document.getElementById('main'));
+    
+    //load pages references
+    loadPages(base);
+    
     var galleryDiv = $("#gallery");
     base('Fotos').select({
         view: "Main View"
@@ -21,19 +25,20 @@ function loadPhotos(base) {
             var id = record.get('ID');
             var stars = getLocalRateStars(record.id);
 
-            $("#gallery").append('<div class="card">'
+            $("#gallery").append('<div class="grid-item col-xl-3 col-md-4 col-sm-6 col-xs-12" data-order="' + id + '" >'
+                + '<div class="grid-item-content album">'
                 + '<a href="#" data-toggle="modal" data-target="#photoModal" data-url="' + url + '" data-id="' + id + '">'
-                + '  <img class="card-img-top img-fluid" src="' + url + '" />'
+                + '  <img class="card-img-top img-fluid" src="' + url + '" title="Click to zoom"/>'
                 + '</a>'
                 + '<div class="card-block">'
                         + '<p class="card-text">#' + id
                         + ' <span  id="rate' + id + '" data-stars="'+stars+'"> </span> '
                         + '<br />'
-                        + '<em><b>Fotograf(in):</b></em> ' + record.get('Fotograf: Name') + '</em>'
+                        + '<em><b>Fotograf(in):</b> ' + record.get('Fotograf: Name') + '</em>'
                         + ((typeof record.get('Notiz') == 'undefined') ? '' : '<hr /><small>' +record.get('Notiz') + '</small>')
                       + '</p>'
                 + '</div>'
-                + '</div>');
+                + '</div></div>');
 
             $(document).ready(function () {
                 $.ratePicker("#rate" + id, {
@@ -68,6 +73,35 @@ function loadPhotos(base) {
         spinner.stop();
     });
 }
+
+function loadPages(base) {
+
+
+    base('Seiten').select({
+        // Selecting the first 3 records in Main View:
+        maxRecords: 20,
+        view: "Main View"
+    }).eachPage(function page(records, fetchNextPage) {
+
+        // This function (`page`) will get called for each page of records.
+
+        records.forEach(function(record) {
+            console.log('ID ', record.get('id'));
+            console.log('Retrieved ', record.get('Zielseite'));
+        });
+
+        // To fetch the next page of records, call `fetchNextPage`.
+        // If there are more records, `page` will get called again.
+        // If there are no more records, `done` will get called.
+        fetchNextPage();
+
+    }, function done(error) {
+        if (error) {
+            console.log(error);
+        }
+    });
+}
+
 
 function getVotes(base) {
     base('Bewertung').select({
