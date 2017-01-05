@@ -57,8 +57,12 @@
             <p>Übersicht der bereits eingereichten Fotos.
                 <br /> Um ein größeres Foto zu sehen, bitte dieses anklicken.</p>
         </div>
-        <div id="gallery" class="container album text-muted card-columns">
-  
+        <div class="container">
+            <div id="gallery" class="grid">
+                <!-- .grid-sizer empty element, only used for element sizing -->
+                <div class="grid-sizer"></div>
+                <!-- dynamically added images by javascript -->  
+            </div>  
         </div>
     </div>
     <footer class="text-muted">
@@ -89,15 +93,29 @@
     <script src="../assets/js/spin.min.js"></script>
     <script src="../assets/js/jquery-rate-picker.js"></script>
     <script src="../assets/js/asmcrypto.js"></script>
+    <script src="../js/masonry.pkgd.min.js"></script>
+    <script src="../js/imagesloaded.pkgd.min.js"></script>
+
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../assets/js/ie10-viewport-bug-workaround.js"> </script>
     <script src="../js/fotocontest.js"></script>
     <script src="../js/admin.js"></script>
     <script>
+
         $(document).ready(function () {
             initApp();
             loadPhotos(base);
             getVotes(base);
+        
+            var $grid = $('.grid').masonry({
+              itemSelector: '.grid-item', // use a separate class for itemSelector, other than .col-
+              columnWidth: '.grid-sizer',
+              percentPosition: true
+            }); 
+            // layout Masonry after each image loads
+            $('.grid').imagesLoaded().progress( function() {
+              $grid.masonry('layout');
+            });            
         });
     </script>
 </body>
