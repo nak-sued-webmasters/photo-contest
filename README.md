@@ -17,7 +17,7 @@ Start local live preview by Browsersync.io by following command in project root 
 
 ` npm start `
 
-All changes will beupdated automatically in opened browser.
+All changes will be updated automatically in opened browser.
 
 ## Libraries used
 
