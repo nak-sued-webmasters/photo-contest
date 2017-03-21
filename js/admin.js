@@ -12,8 +12,6 @@ function login() {
 function loadPhotos(base) {
     var spinner = new Spinner(opts).spin(document.getElementById('main'));
     
-    //load pages references
-    loadPages(base);
     
     var galleryDiv = $("#gallery");
     base('Fotos').select({
@@ -32,10 +30,13 @@ function loadPhotos(base) {
                 + '</a>'
                 + '<div class="card-block">'
                         + '<p class="card-text">#' + id
-                        + ' <span  id="rate' + id + '" data-stars="'+stars+'"> </span> '
+                        + ' <!-- span  id="rate' + id + '" data-stars="'+stars+'"> </span --> '
                         + '<br />'
                         + '<em><b>Fotograf(in):</b> ' + record.get('Fotograf: Name') + '</em>'
                         + ((typeof record.get('Notiz') == 'undefined') ? '' : '<hr /><small>' +record.get('Notiz') + '</small>')
+                        + ((typeof record.get('Für welche Seite(n)?') == 'undefined') ? '' : '<hr /><small>' 
+                        + '<span id="' + record.get('Für welche Seite(n)?') + '">' + record.get('Für welche Seite(n)?') + '</span>'
+                        + '</small>')
                       + '</p>'
                 + '</div>'
                 + '</div></div>');
@@ -45,7 +46,7 @@ function loadPhotos(base) {
                     max: 5
                     , rate: function (stars) {
                         console.log(record.id + ' - Rate is ' + stars);
-                        setLocalRateStars(record.id, stars);
+                        setLocalRateStars(record.id, stars);                    
                     }
                 });
             });
@@ -69,25 +70,39 @@ function loadPhotos(base) {
                 modal.find('.modal-title').text('Foto  #' + id)
                 modal.find('.modal-body .img-fluid').attr("src", url);
             });
+            
+            //load pages references
+            loadPages(base);    
         }
         spinner.stop();
     });
+}
+
+function getPages(base, ids) {
+    var pages ="";
+    for (let element of ids) {
+
+        var record =  base('Seiten').find(element, function(err, record) {
+            if (err) { console.error(err); return; }
+            console.log(record);
+            pages = pages + record.get('Zielseite') + "<br />";
+        });   
+    }
+    console.log("Pages: " +pages);
+    return pages;
 }
 
 function loadPages(base) {
 
 
     base('Seiten').select({
-        // Selecting the first 3 records in Main View:
         maxRecords: 20,
         view: "Main View"
     }).eachPage(function page(records, fetchNextPage) {
 
         // This function (`page`) will get called for each page of records.
-
         records.forEach(function(record) {
-            console.log('ID ', record.get('id'));
-            console.log('Retrieved ', record.get('Zielseite'));
+            replaceText('*', record.id, " " + record.get('Zielseite'), 'g');
         });
 
         // To fetch the next page of records, call `fetchNextPage`.
@@ -135,4 +150,13 @@ function getLocalRateStars(id) {
 function setLocalRateStars(id, stars) {
 
   localStorage.setItem(id, stars);
+}
+
+function replaceText(selector, text, newText, flags) {
+  var matcher = new RegExp(text, flags);
+  $(selector).each(function () {
+    var $this = $(this);
+    if (!$this.children().length)
+       $this.text($this.text().replace(matcher, newText));
+  });
 }
