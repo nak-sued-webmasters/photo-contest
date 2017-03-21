@@ -11,6 +11,9 @@ Photo-Contest Webapp based on [Airtable](https://airtable.com) and Airtable API.
 * Install node.js
 * Install npm
 
+Call initially in root directory of the project:
+` npm install `
+
 ### Local Testing
 
 Start local live preview by Browsersync.io by following command in project root directory:
