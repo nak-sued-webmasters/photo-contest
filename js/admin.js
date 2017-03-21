@@ -78,19 +78,6 @@ function loadPhotos(base) {
     });
 }
 
-function getPages(base, ids) {
-    var pages ="";
-    for (let element of ids) {
-
-        var record =  base('Seiten').find(element, function(err, record) {
-            if (err) { console.error(err); return; }
-            console.log(record);
-            pages = pages + record.get('Zielseite') + "<br />";
-        });   
-    }
-    console.log("Pages: " +pages);
-    return pages;
-}
 
 function loadPages(base) {
 
