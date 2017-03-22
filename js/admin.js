@@ -15,7 +15,8 @@ function loadPhotos(base) {
     
     var galleryDiv = $("#gallery");
     base('Fotos').select({
-        view: "Main View"
+        view: "Main View",
+        filterByFormula: $('#filter').val()
     }).eachPage(function page(records, fetchNextPage) {
         // This function (`page`) will get called for each page of records.
         records.forEach(function (record) {
@@ -69,6 +70,12 @@ function loadPhotos(base) {
                 var modal = $(this);
                 modal.find('.modal-title').text('Foto  #' + id)
                 modal.find('.modal-body .img-fluid').attr("src", url);
+
+                var angle = 0;
+                $('#rotate').on('click', function() {
+                    angle += 90;
+                    modal.find('.modal-body .img-fluid').css('transform','rotate(' + angle + 'deg)');
+                });
             });
             
             //load pages references
@@ -76,20 +83,6 @@ function loadPhotos(base) {
         }
         spinner.stop();
     });
-}
-
-function getPages(base, ids) {
-    var pages ="";
-    for (let element of ids) {
-
-        var record =  base('Seiten').find(element, function(err, record) {
-            if (err) { console.error(err); return; }
-            console.log(record);
-            pages = pages + record.get('Zielseite') + "<br />";
-        });   
-    }
-    console.log("Pages: " +pages);
-    return pages;
 }
 
 function loadPages(base) {
@@ -102,6 +95,10 @@ function loadPages(base) {
 
         // This function (`page`) will get called for each page of records.
         records.forEach(function(record) {
+            $('#filter').append($('<option>', { 
+                value: "{Für welche Seite(n)?} = '" + record.get('Zielseite') + "'",
+                text : record.get('Zielseite')
+            }));
             replaceText('*', record.id, " " + record.get('Zielseite'), 'g');
         });
 
@@ -160,3 +157,10 @@ function replaceText(selector, text, newText, flags) {
        $this.text($this.text().replace(matcher, newText));
   });
 }
+
+
+var angle = 0;
+$('#button').on('click', function() {
+    angle += 90;
+    $("#image").rotate(angle);
+});

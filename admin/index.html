@@ -54,10 +54,16 @@
                 <li class="breadcrumb-item active">Übersicht</li>
             </ol>
             <h2>Übersicht der eingereichten Fotos</h2>
-            <p>Übersicht der bereits eingereichten Fotos.
-                <br /> Um ein größeres Foto zu sehen, bitte dieses anklicken.</p>
+            <p>Um ein größeres Foto zu sehen, bitte dieses anklicken.</p>
+            <form>
+                <div class="form-group row">
+                    <div class="col-sm-12">
+                        <select id="filter" class="form-control form-control-lg" ><option value="TRUE()" selected>Alle Fotos (Filter auswählen ...)</option></select>
+                    </div>
+                </div>
+            </form>
         </div>
-        <div class="container">
+        <div class="container-fluid">
             <div id="gallery" class="grid">
                 <!-- .grid-sizer empty element, only used for element sizing -->
                 <div class="grid-sizer"></div>
@@ -80,7 +86,8 @@
                     <h4 class="modal-title" id="exampleModalLabel">Foto</h4> </div>
                 <div class="modal-body"> <img class="img-fluid" src="" data-dismiss="modal"/> </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="rotate" type="button" class="btn btn-secondary" title="temporär drehen">Drehen</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Schliessen</button>
                 </div>
             </div>
         </div>
@@ -106,7 +113,7 @@
             initApp();
             loadPhotos(base);
             getVotes(base);
-        
+            
             var $grid = $('.grid').masonry({
               itemSelector: '.grid-item', // use a separate class for itemSelector, other than .col-
               columnWidth: '.grid-sizer',
@@ -115,7 +122,14 @@
             // layout Masonry after each image loads
             $('.grid').imagesLoaded().progress( function() {
               $grid.masonry('layout');
-            });            
+            }); 
+            
+            $('#filter').on('change', function (e) {
+                var valueSelected = this.value;
+                $grid.empty();
+                loadPhotos(base);
+                $grid.masonry('layout');
+            });                   
         });
     </script>
 </body>
