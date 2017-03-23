@@ -77,6 +77,9 @@ function loadPhotos(base) {
                     modal.find('.modal-body .img-fluid').css('transform','rotate(' + angle + 'deg)');
                 });
             });
+            $('#photoModal').on('hidden.bs.modal', function (e) {
+                modal.find('.modal-body .img-fluid').css('transform','none');
+            })
             
             //load pages references
             loadPages(base);    
