@@ -97,9 +97,9 @@ function loadPages(base) {
     }).eachPage(function page(records, fetchNextPage) {
 
         // This function (`page`) will get called for each page of records.
-        records.forEach(function(record) {
+        records.forEach(function(record) {           
             $('#filter').append($('<option>', { 
-                value: "{Für welche Seite(n)?} = '" + record.get('Zielseite') + "'",
+                value: "FIND( '" + record.get('Zielseite') + "', ARRAYJOIN({Für welche Seite(n)?}, ';'))",
                 text : record.get('Zielseite')
             }));
             replaceText('*', record.id, " " + record.get('Zielseite'), 'g');
