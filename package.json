@@ -5,9 +5,13 @@
   "license": "MIT",
   "description": "Foto contest connected to Airtable",
   "readme": "README.md",
+  "repository": {
+    "url": "https://github.com/nak-sued-webmasters/photo-contest.git"
+  },
   "dependencies": {
-    "airtable": "0.4.5",
-    "jquery": "3.2.1"
+    "airtable": "^0.4.5",
+    "jquery": "^3.2.1",
+    "bootstrap": "4.0.0-alpha.6"
   },
   "devDependencies": {
     "concurrently": "3.4.0",
