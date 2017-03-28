@@ -31,7 +31,9 @@
   color: #fff;
 }
 
-
+#gallery {
+  min-height: 350px;
+}
 
 .album {
   margin-bottom: .25rem;
