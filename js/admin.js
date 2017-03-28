@@ -1,5 +1,7 @@
 'use strict';
 
+var filter_loaded = false; //global flag to check if filter is already loaded in select option
+
 function login() {
     
 }
@@ -94,11 +96,14 @@ function loadPages(base) {
     }).eachPage(function page(records, fetchNextPage) {
 
         // This function (`page`) will get called for each page of records.
-        records.forEach(function(record) {           
-            $('#filter').append($('<option>', { 
-                value: "FIND( '" + record.get('Zielseite') + "', ARRAYJOIN({Für welche Seite(n)?}, ';'))",
-                text : record.get('Zielseite')
-            }));
+        records.forEach(function(record) {
+            //update filter 
+            if(filter_loaded == false) {       
+                $('#filter').append($('<option>', { 
+                    value: "FIND( '" + record.get('Zielseite') + "', ARRAYJOIN({Für welche Seite(n)?}, ';'))",
+                    text : record.get('Zielseite')
+                }));
+            }
             replaceText('*', record.id, " " + record.get('Zielseite'), 'g');
         });
 
@@ -111,6 +116,7 @@ function loadPages(base) {
         if (error) {
             console.log(error);
         }
+        filter_loaded = true;
     });
 }
 
