@@ -20,35 +20,26 @@
 </head>
 
 <body>
-    <div class="navbar-collapse collapse inverse" id="navbar-header">
-        <div class="container-fluid">
-            <div class="about">
-                <h4>Über den Contest</h4>
-                <p class="text-muted">Das ist ein Foto-Contest des Core-Teams der Webmaster der Neuapostolischen Kirche Süddeutschland.</p>
-            </div>
-            <div class="social">
-                <h4>Kontakt</h4>
-                <ul class="list-unstyled">
-                    <li><a href="impressum.html">Impressum</a></li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="navbar navbar-static-top navbar-dark bg-inverse">
-        <div class="container-fluid">
-
-            <a href="index.html" class="navbar-brand"> <img class="d-inline-block align-top" src="/assets/favicon.png" width="30" height="30" alt="" /> Foto Contest</a>
-             <ul class="nav navbar-nav">
-                <!-- <li class="nav-item active">
-                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li> -->
-                <li class="nav-item">
-                   <a href="plakat-potocontest.pdf" class="nav-link" target="_blank"><i class="fa fa-download" aria-hidden="true"></i> Download Plakat</a>
-                </li>
-            </ul>
-            <button class="navbar-toggler float-xs-right" type="button" data-toggle="collapse" data-target="#navbar-header" aria-controls="navbar-header" aria-expanded="false" aria-label="Toggle navigation"></button>
-        </div>
-    </div>
+   <nav class="navbar navbar-toggleable-md navbar-dark navbar-inverse bg-inverse sticky-top " role="navigation">  
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>              
+        <a href="/index.html" class="navbar-brand"> 
+            <img class="d-inline-block align-top" src="/assets/favicon.png" width="30" height="30" alt="" /> 
+            Foto Contest
+        </a>
+        <div id="navbarNav" class="navbar-collapse collapse">
+        <ul class="navbar-nav mr-auto mt-2 mt-md-0">
+            <li class="nav-item">
+                <a class="nav-link" href="/index.html">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="plakat-potocontest.pdf" target="_blank"><i class="fa fa-download" aria-hidden="true"></i> Download Plakat</a>
+            </li>
+        </ul>
+        </div>   
+    </nav>
+    
     <section class="jumbotron">
         <div class="container">
             <h1 class="jumbotron-heading">Foto Contest</h1>
@@ -102,12 +93,19 @@
             <iframe class="airtable-embed airtable-dynamic-height" src="https://airtable.com/embed/shrZZeOTDi69wfiOz?backgroundColor=blue" frameborder="0" onmousewheel="" width="100%" height="1536.2" style="background: transparent; border: 0px solid #ccc;"></iframe>
         </div>
     </div>
-    <footer class="text-muted">
+    
+    <footer class="bg-inverse">
         <div class="container">
-            <p class="float-xs-right"> <a href="#">Back to top</a> </p>
-            <p>Foto Contest 2016 | <a href="impressum.html">Impressum</a></p>
+ 
+            <h4 class="text-muted">Über den Contest</h4>
+            <p class="text-muted">Das ist ein Foto-Contest des Core-Teams der Webmaster der Neuapostolischen Kirche Süddeutschland.</p>
+
+            <p  class="text-muted">Foto Contest 2016 
+            | <a href="impressum.html">Impressum</a> 
+            | <a class="float-xs-right" href="#">Back to top</a></p>
         </div>
     </footer>
+    
     <script src="js/jquery.min.js"></script>
     <script src="js/tether.min.js"></script>
     <script src="js/bootstrap.min.js"></script>

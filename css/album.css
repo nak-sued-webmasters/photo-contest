@@ -45,23 +45,26 @@
   box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 2px;
 }
 
-#gallery {
-
-}
 
 .card {
+  -width: 10rem;
   transition-delay: 0s;
   transition-duration: 0.08s, 0.2s, 0.2s;
   transition-property: transform, top, left;
   transition-timing-function: ease-out, ease-in-out, ease-in-out;
 
   float: left;
-  padding: .75rem;
   margin-bottom: 2rem;
-  border: 0;
+  margin-bottom: .25rem;
+  border-radius: .25rem;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #a7a7a7;
+  background-color: #f7f7f7;
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 2px;  
 }
 
-.card > img {
+.card > --img {
   background: #fff none repeat scroll 0 0 / 15px 15px;
   border-bottom: 0 solid #f2f2f2;
   box-sizing: border-box;

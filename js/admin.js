@@ -1,9 +1,7 @@
 'use strict';
 
 function login() {
-  
-  digest = asmCrypto.SHA256.hex("The quick brown fox jumps over the lazy dog");
-  
+    
 }
 
 /**
@@ -24,8 +22,8 @@ function loadPhotos(base) {
             var id = record.get('ID');
             var stars = getLocalRateStars(record.id);
 
-            $("#gallery").append('<div class="grid-item col-xl-3 col-md-4 col-sm-6 col-xs-12" data-order="' + id + '" >'
-                + '<div class="grid-item-content album">'
+            $("#gallery").append(' <div class="col-xs-12 col-sm-6 col-md-3"><div class="card" data-order="' + id + '" >'
+
                 + '<a href="#" data-toggle="modal" data-target="#photoModal" data-url="' + url + '" data-id="' + id + '">'
                 + '  <img class="card-img-top img-fluid" src="' + url + '" title="Click to zoom"/>'
                 + '</a>'
@@ -34,13 +32,12 @@ function loadPhotos(base) {
                         + ' <!-- span  id="rate' + id + '" data-stars="'+stars+'"> </span --> '
                         + '<br />'
                         + '<em><b>Fotograf(in):</b> ' + record.get('Fotograf: Name') + '</em>'
-                        + ((typeof record.get('Notiz') == 'undefined') ? '' : '<hr /><small>' +record.get('Notiz') + '</small>')
-                        + ((typeof record.get('Für welche Seite(n)?') == 'undefined') ? '' : '<hr /><small>' 
+                        + ((typeof record.get('Notiz') == 'undefined') ? '' : '<hr /><small class="text-muted">' +record.get('Notiz') + '</small>')
+                        + ((typeof record.get('Für welche Seite(n)?') == 'undefined') ? '' : '<hr /><small class="text-muted">' 
                         + '<span id="' + record.get('Für welche Seite(n)?') + '">' + record.get('Für welche Seite(n)?') + '</span>'
                         + '</small>')
                       + '</p>'
-                + '</div>'
-                + '</div></div>');
+                + '</div></div></div>');
 
             $(document).ready(function () {
                 $.ratePicker("#rate" + id, {
