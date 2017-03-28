@@ -16,7 +16,16 @@
   "devDependencies": {
     "concurrently": "3.4.0",
     "lite-server": "2.3.0",
-    "surge": "^0.19.0"
+    "surge": "^0.19.0",
+    "jshint": "2.9.4",
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-compress": "^1.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.0",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-contrib-uglify": "^1.0.0",
+    "grunt-contrib-watch": "~1.0.0"         
   },
   "scripts": {
     "start": "npm run lite",
