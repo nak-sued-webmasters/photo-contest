@@ -1,3 +1,4 @@
+'use strict';
 
 var Airtable = require('airtable');
 var base;
@@ -23,7 +24,7 @@ var opts = {
 , shadow: false // Whether to render a shadow
 , hwaccel: false // Whether to use hardware acceleration
 , position: 'absolute' // Element positioning
-}
+};
 
 function initApp() {
         

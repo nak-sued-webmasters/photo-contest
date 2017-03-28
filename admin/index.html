@@ -83,7 +83,8 @@
                     <h4 class="modal-title" id="exampleModalLabel">Foto</h4> </div>
                 <div class="modal-body"> <img class="img-fluid" src="" data-dismiss="modal"/> </div>
                 <div class="modal-footer">
-                    <button id="rotate" type="button" class="btn btn-secondary" title="temporär drehen">Drehen</button>
+                    <button id="rotate" type="button" class="btn btn-secondary" title="temporär drehen"><i class="fa fa-repeat" aria-hidden="true"> </i> Drehen</button>
+                    <a href="" type="button" class="btn btn-secondary download" download="Foto_"  role="button"><i class="fa fa-download" aria-hidden="true"> </i> Download</a>
                     <button type="button" class="btn btn-primary" data-dismiss="modal">Schliessen</button>
                 </div>
             </div>
@@ -106,7 +107,6 @@
         $(document).ready(function () {
             initApp();
             loadPhotos(base);
-            getVotes(base);
                  
             $('#filter').on('change', function (e) {
                 var valueSelected = this.value;
