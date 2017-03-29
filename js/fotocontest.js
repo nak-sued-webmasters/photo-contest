@@ -59,8 +59,9 @@ function showPages(base) {
               + '<a href="' + record.get('entsprechender Link auf nak-sued.de') + '" target="_blank">'
               + record.get('Zielseite')
               + '</a></div>'
-              + '<div class="col-sm-3"><progress class="progress progress-info" value="' + imgCount + '" max="15" title="' + imgCount + ' eingereichte Fotos"></progress></div>'
-              + '</div>'
+              + '<div class="col-sm-3"><div class="progress">'
+              + '  <progress role="progressbar" style="width: 100%; height: 20px;" class="progress-bar progress-info progress-bar-striped" value="' + imgCount + '" max="15" aria-valuenow="' + imgCount + '" aria-valuemin="0" aria-valuemax="15" title="' + imgCount + ' eingereichte Fotos">' + imgCount + '</progress>'
+              + '</div></div>'
             );
           });
         }
